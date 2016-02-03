@@ -1,0 +1,31 @@
+{
+  "generator-angular-package": {
+    "props": {
+      "author": {
+        "name": "Joel Rahman",
+        "email": "joel@flowmatters.com.au"
+      },
+      "yourModule": {
+        "original": "ng-static-data",
+        "camelized": "ngStaticData",
+        "dasherized": "ng-static-data",
+        "slugified": "ng-static-data",
+        "parts": [
+          "ng",
+          "static",
+          "data"
+        ]
+      },
+      "includeModuleDirectives": false,
+      "includeModuleFilters": false,
+      "includeModuleServices": true,
+      "includeModuleControllers": false,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "moduleDirectory": "modules/ng-static-data",
+      "moduleUnitTestDirectory": "test/unit/ng-static-data",
+      "moduleUnitE2eDirectory": "test/e2e/ng-static-data"
+    }
+  }
+}
