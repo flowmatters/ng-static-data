@@ -122,4 +122,21 @@ angular.module('ng-static-data').service('staticData',function($http,$q) {
       };
       return result;
     };
+
+    /**
+     * @ngdoc method
+     * @name unwrap
+     * @methodOf ng-static-data.staticData
+     * @description
+     * Automatically unwrap the result of a promise and assign to a field
+     *
+     * @param {object} Target object
+     * @param {string} Name of attribute to assign on target
+     * @param {function} Promise returning function
+     */
+    service.unwrap = function(target,attr,promise){
+      $q.when(promise()).then(function(result){
+        target[attr] = result;
+      });
+    };
   });
