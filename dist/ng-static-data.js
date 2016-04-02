@@ -41,6 +41,8 @@
 angular.module('ng-static-data').service('staticData',function($http,$q) {
     var service = this;
 
+    service.allowCache = false;
+
     /**
      * @ngdoc method
      * @name deferredGet
@@ -60,13 +62,15 @@ angular.module('ng-static-data').service('staticData',function($http,$q) {
       var result = function() {
         var deferred = $q.defer();
 
+        var param = service.allowCache?
+            {} : {params:{nocache:(new Date().toString())}};
         if(s[attr]) {
           $q.when(s[attr]).then(function(nestedResult){
             deferred.resolve(nestedResult);
           });
         } else {
           s[attr] = deferred.promise;
-          $http.get(url).
+          $http.get(url,param).
             success(function(data) {
               if(parser) {
                 s[attr] = parser(data);
